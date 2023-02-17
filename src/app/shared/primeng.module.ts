@@ -5,6 +5,9 @@ import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 import {TieredMenuModule} from 'primeng/tieredmenu';
+import {CardModule} from 'primeng/card';
+import {AvatarModule} from 'primeng/avatar';
+import {AvatarGroupModule} from 'primeng/avatargroup';
 
 @NgModule({
     exports: [
@@ -12,7 +15,10 @@ import {TieredMenuModule} from 'primeng/tieredmenu';
         ButtonModule,
         MenubarModule,
         InputTextModule,
-        TieredMenuModule
+        TieredMenuModule,
+        CardModule,
+        AvatarModule,
+        AvatarGroupModule
 
     ],
 })

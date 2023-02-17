@@ -18,9 +18,10 @@ import { Component } from '@angular/core';
 
       <img
         src="https://miro.medium.com/max/1400/1*ASPrAbd2qtFVSVuru7Y7Rw.png"
-        width="95%"
+        width="100%"
         alt="404 page"
         style="padding-top: 10px"
+        class="flex align-items-center justify-content-center"
       />
 
       <a
