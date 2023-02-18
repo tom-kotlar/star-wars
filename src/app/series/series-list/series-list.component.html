@@ -1,0 +1,17 @@
+<ng-container *ngIf="series.length; else nothing">
+
+    <div class="flex flex-row justify-content-evenly flex-wrap pt-5">
+      
+         <series-card
+            *ngFor="let movie of series; trackBy: trackById; index as i"
+            [series]="movie"
+          >
+    </series-card>
+    </div>
+</ng-container>
+
+<ng-template #nothing>
+<p>No Series here...</p>
+</ng-template>
+
+

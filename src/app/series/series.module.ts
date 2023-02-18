@@ -1,20 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { HttpClientModule } from '@angular/common/http';
-import { MovieCardComponent } from './movie-card/movie-card.component';
 import { PrimeNgModule } from '../shared/primeng.module';
-import { MoviesListComponent } from './containers/movies-list/movies-list.component';
 
+import { SeriesListComponent } from './series-list/series-list.component';
+import { SeriesCardComponent } from './series-card/series-card.component';
 
 
 @NgModule({
   declarations: [
-   MoviesListComponent, MovieCardComponent
+    SeriesListComponent,
+    SeriesCardComponent,
+
   ],
   imports: [
     CommonModule, HttpClientModule, PrimeNgModule
   ],
-  exports: [MoviesListComponent, MovieCardComponent],
+  exports: [ SeriesListComponent, SeriesListComponent],
 })
-export class MoviesModule { }
+export class SeriesModule { }

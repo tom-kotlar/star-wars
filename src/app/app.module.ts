@@ -10,6 +10,7 @@ import { NotFoundComponent } from "./pages/not-found.component";
 import { HomeComponent } from './pages/home.component';
 
 import { MoviesModule } from './movies/movies.module';
+import { SeriesModule } from './series/series.module';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { MoviesModule } from './movies/movies.module';
     AppComponent,
     NotFoundComponent,
     HomeComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -24,6 +26,7 @@ import { MoviesModule } from './movies/movies.module';
     BrowserAnimationsModule,
     PrimeNgModule,
     MoviesModule,
+    SeriesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

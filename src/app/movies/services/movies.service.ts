@@ -59,23 +59,5 @@ export class MoviesService {
     return { name: '', icon: '', price: 0, description: '' };
   }
 
-  create(payload: Movie) {
-    this.movies = [...this.movies, payload];
-    console.log(this.movies);
-  }
-
-  update(payload: Movie) {
-    this.movies = this.movies.map((movie: Movie) => {
-      if (movie.id === payload.id) {
-        return payload;
-      }
-      return movie;
-    });
-    console.log(this.movies);
-  }
-
-  delete(payload: Movie) {
-    this.movies = this.movies.filter((movie: Movie) => movie.id !== payload.id);
-    console.log(this.movies);
-  }
+ 
 }
