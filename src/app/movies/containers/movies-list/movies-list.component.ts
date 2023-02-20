@@ -13,7 +13,7 @@ export class MoviesListComponent implements OnInit  {
   constructor(private movieService: MoviesService) {}
 
   ngOnInit(): void {
-    this.movies = this.movieService.read();
+    this.movieService.read().subscribe(  (series:Movie[]) => this.movies = series);
   }
 
   trackById(index: number, value: Movie) {

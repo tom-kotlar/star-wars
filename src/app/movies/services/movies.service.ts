@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Movie } from '../models/movie.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -42,21 +43,22 @@ export class MoviesService {
   }
   ]
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
 
   read() {
-    return this.movies;
+    return this.http.get<Movie[]>(`http://localhost:3000/movies`)
+    // return this.movies;
   }
 
   readOne(id: any) {
-    const movie = this.read().find((movie: Movie) => movie.id === id);
+    // const movie = this.read().find((movie: Movie) => movie.id === id);
 
-    if (movie) {
-      return movie;
-    }
+    // if (movie) {
+    //   return movie;
+    // }
 
-    return { name: '', icon: '', price: 0, description: '' };
+    // return { name: '', icon: '', price: 0, description: '' };
   }
 
  
