@@ -1,5 +1,5 @@
 export interface Serie {
-      id: number,
+      id?: string,
       story: string    
       title:  string
       release: number,

@@ -1,10 +1,10 @@
-<ng-container *ngIf="series.length; else nothing">
+<ng-container *ngIf="series; else nothing">
 
     <div class="flex flex-row justify-content-evenly flex-wrap pt-5">
       
          <series-card
-            *ngFor="let movie of series; trackBy: trackById; index as i"
-            [series]="movie"
+            *ngFor="let serie of series; trackBy: trackById; index as i"
+            [series]="serie"
           >
     </series-card>
     </div>
