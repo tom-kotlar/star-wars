@@ -8,6 +8,8 @@ import {TieredMenuModule} from 'primeng/tieredmenu';
 import {CardModule} from 'primeng/card';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
+import {InputNumberModule} from 'primeng/inputnumber';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 
 @NgModule({
     exports: [
@@ -18,7 +20,9 @@ import {AvatarGroupModule} from 'primeng/avatargroup';
         TieredMenuModule,
         CardModule,
         AvatarModule,
-        AvatarGroupModule
+        AvatarGroupModule,
+        InputNumberModule,
+        InputTextareaModule
 
     ],
 })
