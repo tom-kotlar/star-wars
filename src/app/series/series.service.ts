@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Serie } from './serie.model';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, map, of, pipe, tap, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { catchError, map, retry, tap, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,22 +12,35 @@ export class SeriesService {
   constructor(private http: HttpClient) {}
 
   read() {
-    return this.http.get<Serie[]>(`http://localhost:3000/series`);
+    // return this.http.get<Serie[]>(`http://localhost:3000/series`);
 
     // if (this.series.length) {
     //   return of(this.series);
     // }
 
-    // return this.http.get<Serie[]>(`http://localhost:3000/series`).pipe(
-    //   tap((show) => {
-    //     this.series = show;
-    //   }),
-    //   catchError(this.handleError)
-    // );
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    headers = headers.append('Api-Token', '1234abcd');
+
+    const options = {
+      headers,
+    };
+    
+    return this.http.get<Serie[]>(`http://localhost:3000/series`, options)
+    .pipe(
+      tap((show) => {
+        this.series = show;
+      }),
+      retry({count: 2, delay: 2000}),
+      catchError(this.handleError)
+    );
   }
 
   readOne(id: any) {
-    return this.read().pipe(
+    return this.read()
+    .pipe(
       map((series) => {
         const serie = series.find((serie: Serie) => serie.id === id);
 

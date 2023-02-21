@@ -14,7 +14,7 @@ export class SeriesDetailComponent implements OnInit {
 
   ngOnInit(): void {
 
-  this.serie = this.seriesService.readOne('6LBeCyF').subscribe((serie: Serie | any) => this.serie = serie)
+  this.serie = this.seriesService.readOne('OB22').subscribe((serie: Serie | any) => this.serie = serie)
 }
 
 
@@ -27,7 +27,10 @@ export class SeriesDetailComponent implements OnInit {
   onUpdate(serie: Serie) {
     this.seriesService
     .update(serie)
-    .subscribe(() => console.log('Updated successfully!'));
+    .subscribe({
+      next: () => console.log('Updated successfully!'),
+      error: (err) => console.log('onUpdate error:', err),
+    });
   }
 
   onDelete(serie: Serie) {
