@@ -6,13 +6,13 @@ import { Component } from '@angular/core';
     <div class="felx-column" style="padding-top: 60px">
       <div class="flex align-items-center justify-content-center">
         <button
-          [routerLink]="'/home'"
+          routerLink="/home"
           pButton
           type="button"
           icon="bx bx-arrow-back"
           iconPos="left"
           class="p-button-link"
-          label="Back"
+          label="Home"
         ></button>
       </div>
 
@@ -28,7 +28,9 @@ import { Component } from '@angular/core';
         class="flex align-items-center justify-content-center"
         href="https://dribbble.com/shots/2309412-Daily-UI-404-Error"
         style="text-decoration: none"
-        >Credits</a
+        >
+        Credits
+        </a
       >
     </div>
   `,
