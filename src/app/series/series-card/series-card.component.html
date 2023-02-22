@@ -1,4 +1,4 @@
-<p-card [style]="{ 'width': '25rem', 'margin-bottom': '1em' }">
+<p-card [style]="{ 'width': '25rem', 'margin-bottom': '1em' }" [routerLink]="[ series.id ]">
 
     <ng-template pTemplate="header">
         <img alt="Car" src="{{ series.poster }}" style="width: 100%" class="poster-width" />
@@ -9,7 +9,7 @@
 
         <div>
             <p class="text-2xl font-medium m-0">{{ series.title }}</p>
-            <p class="text-base m-0">Helooo</p>
+            <p class="text-base m-0">{{series.name}}</p>
         </div>
 
     </div>
