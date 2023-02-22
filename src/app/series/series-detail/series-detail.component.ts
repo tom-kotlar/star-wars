@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Serie } from '../serie.model';
 import { SeriesService } from '../series.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'series-detail',
@@ -13,18 +13,19 @@ export class SeriesDetailComponent implements OnInit {
   isEdit!: boolean;
 
   constructor(
-    private router: ActivatedRoute,
+    private activeroute: ActivatedRoute,
+    private router: Router,
     private seriesService: SeriesService
   ) {}
 
   ngOnInit(): void {
-    const id = this.router.snapshot.paramMap.get('id')
+    const id = this.activeroute.snapshot.paramMap.get('id')
    
     this.serie = this.seriesService
       .readOne(id)
       .subscribe((serie: Serie | any) => (this.serie = serie));
 
-      this.isEdit  = this.router.snapshot.data['isEdit']
+      this.isEdit  = this.activeroute.snapshot.data['isEdit']
   }
 
   onCreate(show: Serie) {
@@ -35,7 +36,7 @@ export class SeriesDetailComponent implements OnInit {
 
   onUpdate(serie: Serie) {
     this.seriesService.update(serie).subscribe({
-      next: () => console.log('Updated successfully!'),
+      next: () => this.router.navigate(['series']),
       error: (err) => console.log('onUpdate error:', err),
     });
   }
@@ -43,6 +44,6 @@ export class SeriesDetailComponent implements OnInit {
   onDelete(serie: Serie) {
     this.seriesService
       .delete(serie)
-      .subscribe(() => console.log('Deleted successfully!'));
+      .subscribe(() => this.router.navigate(['series']));
   }
 }
