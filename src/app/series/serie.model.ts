@@ -1,9 +1,10 @@
 export interface Serie {
-      id?: string,
+      id?: string
       story: string    
       title:  string
-      release: number,
-      seasons: number,
+      name: string
+      release: number
+      seasons: number
       poster: string
       info:  string
       trailer:  string
