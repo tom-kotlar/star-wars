@@ -1,17 +1,29 @@
-<ng-container *ngIf="series; else nothing">
+<div class="flex flex-row align-items-center justify-content-center m-4" *ngIf="series">
 
-    <div class="flex flex-row justify-content-evenly flex-wrap pt-5">
-      
-         <series-card
-            *ngFor="let serie of series; trackBy: trackById; index as i"
-            [series]="serie"
-          >
+  <button pButton pRipple routerLink="new" icon="pi pi-plus" type="button" label="Add Series"
+    class="p-button-outlined">
+  </button>
+  
+</div>
+
+<ng-container *ngIf="series; else nothing">
+  <div class="flex flex-row justify-content-evenly flex-wrap pt-5">
+    <series-card *ngFor="let serie of series; trackBy: trackById; index as i" [series]="serie">
     </series-card>
-    </div>
+  </div>
 </ng-container>
 
 <ng-template #nothing>
-<p>No Series here...</p>
+  <div class="flex-column flex flex-row align-items-center justify-content-center">
+
+    <p class=" m-4">No Series here...</p>
+
+    <img src="https://cdn.dribbble.com/users/605899/screenshots/3167194/media/f6474fc4e6145bc0b526f61c4b82e317.gif"
+      alt="" width="50%" class="flex align-items-center justify-content-center">
+
+    <a href="https://dribbble.com/shots/3167194-R2B8" style="text-decoration: none">
+      Credits
+    </a>
+  </div>
+
 </ng-template>
-
-
