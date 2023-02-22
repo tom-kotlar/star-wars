@@ -3,22 +3,24 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './pages/not-found.component';
 import { HomeComponent } from './pages/home.component';
 
-import { SeriesDetailComponent } from './series/series-detail/series-detail.component';
-import { SeriesListComponent } from './series/series-list/series-list.component';
-
 const routes: Routes = [
-
-  { path: 'series', children: [
-    { path: '', component: SeriesListComponent },
-    { path: 'show', component: SeriesDetailComponent },
-  ]},
-  { path: '', redirectTo: 'home', pathMatch: 'full'},
+  {
+    path: 'movies',
+    loadChildren: () =>
+      import('./movies/movies.module').then((x) => x.MoviesModule),
+  },
+  {
+    path: 'series',
+    loadChildren: () =>
+      import('./series/series.module').then((x) => x.SeriesModule),
+  },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: '**', component: NotFoundComponent }
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
