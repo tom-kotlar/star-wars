@@ -11,7 +11,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 export const routes: Routes = [
   { path: '', component: SeriesListComponent },
-  { path: 'show', component: SeriesDetailComponent },
+  { path: 'new', component: SeriesDetailComponent, data: { isEdit: false } },
+  { path: ':id', component: SeriesDetailComponent, data: { isEdit: true } },
 ];
 
 @NgModule({
@@ -26,6 +27,6 @@ export const routes: Routes = [
     PrimeNgModule,
     FormsModule,
     RouterModule.forChild(routes),
-  ]
+  ],
 })
-export class SeriesModule {}
+export class SeriesModule { }

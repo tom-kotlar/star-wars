@@ -2,11 +2,11 @@
 
 <pre>{{ serie | json }}</pre> -->
 
-<div class="grid grid-nogutter surface-section text-800"  >
-    <div class="col-12 md:col-4 p-3  ">
-        <section >
-            <form class="series-form " #form="ngForm"   *ngIf="serie; else loading">
-                <!-- <h5>id</h5>
+<div class="grid grid-nogutter surface-section text-800">
+  <div class="col-12 md:col-4 p-3">
+    <section>
+      <form class="series-form" #form="ngForm" *ngIf="serie; else loading">
+        <!-- <h5>id</h5>
                 <span class="p-input-icon-right p-float-label" *ngIf="serie">
                     <i class="bx bxs-pin"></i>
                     <p-inputNumber inputId="integeronly" name="id" [ngModel]="serie.id">
@@ -22,98 +22,146 @@
                     </p-inputNumber>
                 </span> -->
 
-                <h5>title</h5>
-                <span class="p-input-icon-left p-float-label">
-                    <i class="bx bxs-tv"></i>
+        <h5>title</h5>
+        <span class="p-input-icon-left p-float-label">
+          <i class="bx bxs-tv"></i>
 
-                    <input type="text" pInputText name="title" [ngModel]="serie.title" required />
-                </span>
+          <input
+            type="text"
+            pInputText
+            name="title"
+            [ngModel]="serie.title"
+            required
+          />
+        </span>
 
-                <h5>story</h5>
-                <span class="p-input-icon-left p-float-label">
-                    <i class="bx bxs-bookmark"></i>
-                    <textarea [rows]="4" [cols]="20" name="story" pInputTextarea [autoResize]="true"
-                        [ngModel]="serie.story"></textarea>
-                </span>
+        <h5>story</h5>
+        <span class="p-input-icon-left p-float-label">
+          <i class="bx bxs-bookmark"></i>
+          <textarea
+            [rows]="4"
+            [cols]="20"
+            name="story"
+            pInputTextarea
+            [autoResize]="true"
+            [ngModel]="serie.story"
+          ></textarea>
+        </span>
 
-                <h5>release</h5>
-                <span class="p-input-icon-right p-float-label">
-                    <i class="bx bx-clipboard"></i>
-                    <p-inputNumber inputId="withoutgrouping" [useGrouping]="false" name="release"
-                        [ngModel]="serie.release">
-                    </p-inputNumber>
-                </span>
+        <h5>release</h5>
+        <span class="p-input-icon-right p-float-label">
+          <i class="bx bx-clipboard"></i>
+          <p-inputNumber
+            inputId="withoutgrouping"
+            [useGrouping]="false"
+            name="release"
+            [ngModel]="serie.release"
+          >
+          </p-inputNumber>
+        </span>
 
-              
-                <h5>seasons</h5>
-                <span class="p-input-icon-right p-float-label">
-                    <i class="bx bxs-book"></i>
-                    <p-inputNumber inputId="withoutgrouping" [useGrouping]="false" name="seasons"
-                        [ngModel]="serie.seasons">
-                    </p-inputNumber>
-                </span>
+        <h5>seasons</h5>
+        <span class="p-input-icon-right p-float-label">
+          <i class="bx bxs-book"></i>
+          <p-inputNumber
+            inputId="withoutgrouping"
+            [useGrouping]="false"
+            name="seasons"
+            [ngModel]="serie.seasons"
+          >
+          </p-inputNumber>
+        </span>
 
-                <h5>poster</h5>
-                <span class="p-input-icon-left p-float-label">
-                    <i class="bx bxs-file-image"></i>
-                    <input type="text" pInputText name="poster" [ngModel]="serie.poster" />
-                </span>
+        <h5>poster</h5>
+        <span class="p-input-icon-left p-float-label">
+          <i class="bx bxs-file-image"></i>
+          <input
+            type="text"
+            pInputText
+            name="poster"
+            [ngModel]="serie.poster"
+          />
+        </span>
 
+        <h5>info</h5>
+        <span class="p-input-icon-left p-float-label">
+          <i class="bx bxs-file-image"></i>
+          <input type="text" pInputText name="info" [ngModel]="serie.info" />
+        </span>
 
-                <h5>info</h5>
-                <span class="p-input-icon-left p-float-label">
-                    <i class="bx bxs-file-image"></i>
-                    <input type="text" pInputText name="info" [ngModel]="serie.info" />
-                </span>
+        <h5>trailer</h5>
+        <span class="p-input-icon-left p-float-label">
+          <i class="bx bxs-cloud-upload"></i>
+          <input
+            type="text"
+            pInputText
+            name="trailer"
+            [ngModel]="serie.trailer"
+          />
+        </span>
 
+        <div class="flex align-items-center justify-content-evenly mt-4">
+          <button
+            pButton
+            type="button"
+            icon="bx bx-plus"
+            iconPos="left"
+            label="Create"
+            styleClass="p-button-sm"
+            (click)="handleCreate(form)"
+            *ngIf="!isEdit"
+          ></button>
 
-                <h5>trailer</h5>
-                <span class="p-input-icon-left p-float-label">
-                    <i class="bx bxs-cloud-upload"></i>
-                    <input type="text" pInputText name="trailer" [ngModel]="serie.trailer" />
-                </span>
+          <button
+            pButton
+            type="button"
+            label="Update"
+            styleClass="p-button-sm"
+            *ngIf="isEdit"
+            [disabled]="form.untouched"
+            (click)="handleUpdate(form)"
+          ></button>
 
+          <button
+            pButton
+            type="button"
+            label="Delete"
+            styleClass="p-button-sm"
+            (click)="handleDelete()"
+            *ngIf="isEdit"
+          ></button>
 
+          <button
+            pButton
+            type="button"
+            label="Reset"
+            *ngIf="form.touched || isEdit"
+            styleClass="p-button-sm"
+            (click)="form.resetForm()"
+          ></button>
+        </div>
+      </form>
+    </section>
+  </div>
 
-                <div class="flex align-items-center justify-content-evenly mt-4">
+  <div class="col-12 md:col-8 overflow-hidden">
+    <img
+      *ngIf="!serie"
+      src="https://www.starwarsnewsnet.com/wp-content/uploads/2022/08/AndorPoster-1.jpg"
+      alt="Image"
+      class="md:ml-auto block md:h-screen"
+      style="clip-path: polygon(20% 0, 100% 0%, 100% 100%, 0 100%)"
+    />
 
-                    <button pButton type="button" icon="bx bx-plus" iconPos="left" label="Create"
-                        styleClass="p-button-sm" (click)="handleCreate(form)" >
-                    </button>
-
-                    <button pButton type="button"  label="Update"
-                        styleClass="p-button-sm" [disabled]="form.untouched" (click)="handleUpdate(form)">
-                    </button>
-
-                    <button pButton type="button" label="Delete"
-                        styleClass="p-button-sm" (click)="handleDelete()">
-                    </button>
-
-                    <button pButton type="button"  label="Reset"
-                        styleClass="p-button-sm" (click)="form.resetForm()">
-                    </button>
-
-                </div>
-
-
-            </form>
-
-            
-        </section>
-       
-    </div>
-
-    <div class="col-12 md:col-8 overflow-hidden">
-        <img *ngIf="!serie" src="https://www.starwarsnewsnet.com/wp-content/uploads/2022/08/AndorPoster-1.jpg"
-            alt="Image" class="md:ml-auto block md:h-screen"
-            style="clip-path: polygon(20% 0, 100% 0%, 100% 100%, 0 100%)">
-
-        <img [src]="serie.poster" alt="Image" class="md:ml-auto block md:h-screen"
-            style="clip-path: polygon(20% 0, 100% 0%, 100% 100%, 0 100%)">
-
-    </div>
+    <img
+      [src]="serie.poster"
+      alt="Image"
+      class="md:ml-auto block md:h-screen"
+      style="clip-path: polygon(20% 0, 100% 0%, 100% 100%, 0 100%)"
+    />
+  </div>
 </div>
 
 <ng-template #loading>
-    <p>Loading...</p>
-    </ng-template>
+  <p>Loading...</p>
+</ng-template>

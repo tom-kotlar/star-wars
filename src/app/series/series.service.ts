@@ -14,9 +14,9 @@ export class SeriesService {
   read() {
     // return this.http.get<Serie[]>(`http://localhost:3000/series`);
 
-    if (this.series.length) {
-      return of(this.series);
-    }
+    // if (this.series.length) {
+    //   return of(this.series);
+    // }
 
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',

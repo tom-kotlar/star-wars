@@ -9,7 +9,7 @@ import { Serie } from '../serie.model';
 })
 export class SeriesFormComponent {
   @Input() serie!: Serie;
-
+  @Input() isEdit!: boolean;
   @Output() create = new EventEmitter<Serie>();
   @Output() update = new EventEmitter<Serie>();
   @Output() delete = new EventEmitter<Serie>();
