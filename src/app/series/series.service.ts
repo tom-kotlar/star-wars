@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Serie } from './serie.model';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { catchError, map, retry, tap, throwError } from 'rxjs';
+import { catchError, map, of, retry, tap, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,9 +14,9 @@ export class SeriesService {
   read() {
     // return this.http.get<Serie[]>(`http://localhost:3000/series`);
 
-    // if (this.series.length) {
-    //   return of(this.series);
-    // }
+    if (this.series.length) {
+      return of(this.series);
+    }
 
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
