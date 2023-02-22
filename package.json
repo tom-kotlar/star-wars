@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "db-series": "json-server --watch src/db-series.json --delay 1000",
-    "db-movies": "json-server --watch src/db-movies.json --delay 1000"
+    "db": "json-server --watch src/db/db.json --delay 1000"
+    
   },
   "private": true,
   "dependencies": {
