@@ -1,23 +1,4 @@
-<p-menubar [model]="items" class="shadow-5 ">
-
-  <ng-template pTemplate="start">
-    <a href="home">
-      <img  src="https://download.logo.wine/logo/Star_Wars/Star_Wars-Logo.wine.png" height="50">
-    </a>
-  </ng-template>
-
-  <ng-template pTemplate="end">
-    <p-tieredMenu [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" #account [model]="accounts"
-      [popup]="true">
-    </p-tieredMenu>
-
-    <button pButton pRipple type="button" icon="bx bx-dots-vertical-rounded"
-      class="p-button-rounded p-button-secondary p-button-text p-button-lg ml-6" #btn (click)="account.toggle($event)">
-    </button>
-  </ng-template>
-
-</p-menubar>
-
+<toolbar></toolbar>
 
 <div style="max-width: 80rem; margin-left: auto;
 margin-right: auto;">

@@ -8,9 +8,12 @@ import { AppComponent } from './app.component';
 
 import { PrimeNgModule } from "./shared/primeng.module";
 
-import { NotFoundComponent } from "./pages/not-found.component";
-import { HomeComponent } from './pages/home.component';
+import { NotFoundComponent } from "./core";
+import { HomeComponent } from './core';
 import { HttpClientModule } from '@angular/common/http';
+import { Core } from "./core";
+
+
 
 
 
@@ -21,11 +24,12 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     NotFoundComponent,
     HomeComponent,
+    Core
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, 
+    AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     PrimeNgModule

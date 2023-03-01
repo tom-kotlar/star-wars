@@ -16,7 +16,9 @@ import { Component } from '@angular/core';
         href="https://tenor.com/users/pushlint"
         style="text-decoration: none"
         class="flex align-items-center justify-content-center"
-        >Credits</a
+        >
+        Credits
+      </a
       >
     </div>
   `,
