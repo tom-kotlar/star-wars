@@ -8,23 +8,16 @@ import { AppComponent } from './app.component';
 
 import { PrimeNgModule } from "./shared/primeng.module";
 
-import { NotFoundComponent } from "./core";
-import { HomeComponent } from './core';
 import { HttpClientModule } from '@angular/common/http';
 import { Core } from "./core";
-
-
-
-
-
+import { SanitaizerPipe } from './pipes/sanitaizer.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent,
-    HomeComponent,
-    Core
+     Core,
+    SanitaizerPipe
 
   ],
   imports: [

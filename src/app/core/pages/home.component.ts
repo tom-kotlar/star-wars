@@ -4,16 +4,23 @@ import { Component } from '@angular/core';
   selector: 'home',
   template: `
     <div class="flex-column">
-      <img
-        src="https://media.tenor.com/L60s9x5LqsMAAAAC/star-wars-lightsaber.gif"
-        width="100%"
-        style="padding-top: 70px"
-        class="flex align-items-center justify-content-center"
-        alt="Mandalorian Starwars Intro"
-      />
+<!--      <img-->
+<!--        src="https://media.tenor.com/L60s9x5LqsMAAAAC/star-wars-lightsaber.gif"-->
+<!--        width="100%"-->
+<!--        style="padding-top: 70px"-->
+<!--        class="flex align-items-center justify-content-center"-->
+<!--        alt="Mandalorian Starwars Intro"-->
+<!--      />-->
+
+      <iframe width="90%" height="600" class="" [src]="intro | sanitizer"
+
+
+
+              allowfullscreen>
+      </iframe>
 
       <a
-        href="https://tenor.com/users/pushlint"
+        href="https://youtu.be/8NoOsPwYacA"
         style="text-decoration: none"
         class="flex align-items-center justify-content-center"
         >
@@ -23,4 +30,8 @@ import { Component } from '@angular/core';
     </div>
   `,
 })
-export class HomeComponent {}
+export class HomeComponent {
+
+  intro = 'https://www.youtube.com/embed/8NoOsPwYacA'
+
+}

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Serie } from '../serie.model';
+import { Serie } from '../../series/serie.model';
 
 @Component({
   selector: 'series-card',
