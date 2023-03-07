@@ -4,6 +4,8 @@ import { NotFoundComponent } from './core';
 import { HomeComponent } from './core';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   {
     path: 'movies',
     loadChildren: () =>
@@ -14,8 +16,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./series/series.module').then((x) => x.SeriesModule),
   },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+
   { path: '**', component: NotFoundComponent },
 ];
 

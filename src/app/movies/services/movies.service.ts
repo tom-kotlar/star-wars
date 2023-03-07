@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Movie } from '../models/movie.model';
+import { Movie } from '../movie.model';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -15,5 +15,5 @@ export class MoviesService {
     return this.http.get<Movie[]>(`http://localhost:3000/movies`)
   }
 
- 
+
 }

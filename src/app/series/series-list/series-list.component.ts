@@ -9,12 +9,13 @@ import { SeriesService } from '../series.service';
 })
 export class SeriesListComponent {
 
-  series!: Serie[]
+  cardDetails!: Serie[]
 
   constructor(private seriesService: SeriesService) {}
 
   ngOnInit(): void {
-    this.seriesService.read().subscribe(  (series:Serie[]) => this.series = series)
+    this.seriesService.read()
+      .subscribe(  (series:Serie[]) => this.cardDetails = series)
   }
 
   trackById(index: number, value: Serie) {

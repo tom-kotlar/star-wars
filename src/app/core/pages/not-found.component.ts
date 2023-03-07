@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'not-found',
   template: `
-    <div class="felx-column" style="padding-top: 60px">
+    <div class="felx-column" >
       <div class="flex align-items-center justify-content-center">
         <button
           routerLink="/home"

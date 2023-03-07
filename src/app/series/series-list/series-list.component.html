@@ -1,15 +1,21 @@
-<div class="flex flex-row align-items-center justify-content-center m-4" *ngIf="series">
+<div class="flex flex-row align-items-center justify-content-center m-4" *ngIf="cardDetails">
 
   <button pButton pRipple routerLink="new" icon="pi pi-plus" type="button" label="Add Series"
     class="p-button-outlined">
   </button>
-  
+
 </div>
 
-<ng-container *ngIf="series; else nothing">
+<ng-container *ngIf="cardDetails; else nothing">
   <div class="flex flex-row justify-content-evenly flex-wrap pt-5">
-    <series-card *ngFor="let serie of series; trackBy: trackById; index as i" [series]="serie">
-    </series-card>
+
+    <card
+      *ngFor="let cardDetail of cardDetails;
+      trackBy: trackById;
+      index as i"
+      [card]="cardDetail"
+    >
+    </card>
   </div>
 </ng-container>
 

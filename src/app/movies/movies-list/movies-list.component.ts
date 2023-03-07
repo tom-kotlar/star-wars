@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from '../../models/movie.model';
-import { MoviesService } from "../../services/movies.service";
+import { Movie } from '../movie.model';
+import { MoviesService } from "../services/movies.service";
 
 @Component({
   selector: 'movies-list',
@@ -8,12 +8,13 @@ import { MoviesService } from "../../services/movies.service";
   styleUrls: ['./movies-list.component.scss']
 })
 export class MoviesListComponent implements OnInit  {
-  movies!: Movie[];
+  cardDetails!: Movie[];
 
   constructor(private movieService: MoviesService) {}
 
   ngOnInit(): void {
-    this.movieService.read().subscribe(  (series:Movie[]) => this.movies = series);
+    this.movieService.read()
+      .subscribe(  (movie: Movie[]) => this.cardDetails = movie);
   }
 
   trackById(index: number, value: Movie) {
