@@ -1,12 +1,14 @@
-  <ng-container *ngIf="movies; else nothing">
+  <ng-container *ngIf="cardDetails; else nothing">
 
         <div class="flex flex-row justify-content-evenly flex-wrap pt-5">
-          
-                <movie-card
-                *ngFor="let movie of movies; trackBy: trackById; index as i"
-                [movie]="movie"
-              >
-              </movie-card>
+
+          <card
+            *ngFor="let cardDetail of cardDetails;
+             trackBy: trackById;
+             index as i"
+            [card]="cardDetail"
+          >
+          </card>
         </div>
   </ng-container>
 
@@ -14,10 +16,10 @@
     <div class="flex-column flex flex-row align-items-center justify-content-center">
 
       <p class=" m-4">No Movies here....</p>
-  
+
       <img src="https://cdn.dribbble.com/users/605899/screenshots/3167194/media/f6474fc4e6145bc0b526f61c4b82e317.gif"
         alt="" width="50%" class="flex align-items-center justify-content-center">
-  
+
       <a href="https://dribbble.com/shots/3167194-R2B8" style="text-decoration: none">
         Credits
       </a>
