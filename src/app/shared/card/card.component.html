@@ -1,0 +1,17 @@
+<p-card [style]="{ 'width': '25rem', 'margin-bottom': '1em' }" [routerLink]="[ card.id ]">
+
+  <ng-template pTemplate="header">
+    <img alt="Car" src="{{ card.poster }}" style="width: 100%" class="poster-width"/>
+  </ng-template>
+  <div class="flex flex-row">
+    <p-avatar image="https://cdn.freebiesupply.com/logos/large/2x/star-wars-logo-black-and-white.png" styleClass="mr-2"
+              size="large" shape="circle"></p-avatar>
+
+    <div>
+      <p class="text-2xl font-medium m-0">{{ card.title }}</p>
+      <p class="text-base m-0">{{card.name}}</p>
+    </div>
+
+  </div>
+
+</p-card>
