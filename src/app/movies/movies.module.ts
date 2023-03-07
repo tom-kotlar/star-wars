@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MovieCardComponent } from './movie-card/movie-card.component';
 import { PrimeNgModule } from '../shared/primeng.module';
-import { MoviesListComponent } from './containers/movies-list/movies-list.component';
+import { MoviesListComponent } from './movies-list/movies-list.component';
 import { RouterModule, Routes } from '@angular/router';
+import { SharedModule } from "../shared/shared.module";
 
 export const routes: Routes = [
   { path: '', component: MoviesListComponent},
@@ -12,10 +12,10 @@ export const routes: Routes = [
 
 @NgModule({
   declarations: [
-   MoviesListComponent, MovieCardComponent
+   MoviesListComponent,
   ],
-  imports: [
-    CommonModule, PrimeNgModule, RouterModule.forChild(routes),
-  ],
+    imports: [
+        CommonModule, PrimeNgModule, RouterModule.forChild(routes), SharedModule,
+    ],
 })
 export class MoviesModule { }
